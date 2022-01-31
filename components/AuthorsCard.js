@@ -8,7 +8,14 @@ import {
 export default function AuthorsCard({ name, job, avatar, slug }) {
   return (
     <>
-      <FlexBoxCenter fd="column" m="0 20px" w="90px" h="170px" mb="20px">
+      <FlexBoxCenter
+        fd="column"
+        m="0 20px"
+        w="90px"
+        h="170px"
+        mb="20px"
+        key={author.slug}
+      >
         <ImageSrc
           className="rounded-circle"
           width="80px"
@@ -27,7 +34,9 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
           br="5px"
         >
           <Link href={"/authors/" + slug} key={slug}>
-            <a className="intip">Intip profil</a>
+            <a className="intip" key={author.slug}>
+              Intip profil
+            </a>
           </Link>
         </FlexBoxCenter>
       </FlexBoxCenter>
