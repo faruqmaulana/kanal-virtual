@@ -24,6 +24,7 @@ export default function Author({ authors }) {
         <div className="d-flex flex-wrap">
           {authors.map((author) => (
             <AuthorsCard
+              key={author.slug}
               name={author.name}
               job={author.job}
               avatar={author.avatar.url}
