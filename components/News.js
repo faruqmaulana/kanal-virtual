@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { formatDate } from "../utils/utils";
 import { PostTitleNews } from "./card/CardStyle";
-import { TitleBoxNews } from "./news/newsStyle";
+import { TitleBoxNews } from "./news/NewsStyle";
 import { FlexBoxCenter, P } from "./styledComponents/StyledComponents";
 
 export default function News(props) {
