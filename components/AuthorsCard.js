@@ -14,7 +14,7 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
         w="90px"
         h="170px"
         mb="20px"
-        key={author.slug}
+        key={slug}
       >
         <ImageSrc
           className="rounded-circle"
@@ -34,7 +34,7 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
           br="5px"
         >
           <Link href={"/authors/" + slug} key={slug}>
-            <a className="intip" key={author.slug}>
+            <a className="intip" key={slug}>
               Intip profil
             </a>
           </Link>
