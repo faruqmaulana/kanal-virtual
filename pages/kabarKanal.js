@@ -1,4 +1,4 @@
-import News from "../components/news";
+import News from "../components/News";
 import TitleCategory from "../components/TitleCategory";
 import Head from "next/head";
 

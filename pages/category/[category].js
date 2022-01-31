@@ -2,7 +2,7 @@ import TitleCategory from "../../components/TitleCategory";
 import Head from "next/head";
 import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 import CardPosts from "../../components/CardPosts";
-import News from "../../components/news";
+import News from "../../components/News";
 
 export async function getServerSideProps({
   params: { category: categorySlug },
