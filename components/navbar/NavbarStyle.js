@@ -102,7 +102,7 @@ export function NavFooter() {
       <FlexBoxCenter fd="column">
         <FlexBoxCenter mb="30px" jc="center">
           {navIcons.map(({ icon, href }) => (
-            <a href={href} target="_blank" key={icon}>
+            <a href={href} target="_blank" key={icon} rel="noreferrer">
               <IconsLink
                 src={icon}
                 mr={icon == "assets/icons/email.png" ? "0" : "6px"}
