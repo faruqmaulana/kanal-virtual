@@ -26,6 +26,10 @@ class MyDocument extends Document {
             integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
             crossOrigin="anonymous"
           ></script>
+          <link
+            rel="shorcut icon"
+            href="https://res.cloudinary.com/dbcloud776/image/upload/v1643645488/favicon_tc0hwl.ico"
+          />
         </Head>
         <body>
           <Main />
