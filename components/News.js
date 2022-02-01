@@ -8,11 +8,11 @@ export default function News(props) {
   return (
     <>
       <Link href={`/${props.slug}`} height={60}>
-        <a className="news">
+        <a className="news mb-3">
           <div className="flex-shrink-0">
             <img src={props.thumbnail.url} width={"84px"} height={"79px"}></img>
           </div>
-          <div class="flex-grow-1 ms-2">
+          <div className="flex-grow-1 ms-2">
             <PostTitleNews>{props.title}</PostTitleNews>
             <P fs="8px" lh="8px" m="0 0 8px 0">
               {props.headline}
