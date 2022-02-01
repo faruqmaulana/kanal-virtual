@@ -4,9 +4,11 @@ import Navbar from "./Navbar";
 export default function Layout({ children, categories }) {
   return (
     <>
-      <Navbar categories={categories}></Navbar>
-      <CategoryPost categories={categories}></CategoryPost>
-      <div className="minHeight">{children}</div>
+      <div className="wrapper">
+        <Navbar categories={categories}></Navbar>
+        <CategoryPost categories={categories}></CategoryPost>
+        {children}
+      </div>
       <Footer></Footer>
     </>
   );

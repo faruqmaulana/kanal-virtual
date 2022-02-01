@@ -16,6 +16,9 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+.wrapper {
+  min-height: 95.9vh;
+}
 .row > * {
   flex-shrink: 0;
   width: inherit;
@@ -25,15 +28,13 @@ body {
   margin-top: var(--bs-gutter-y);
 }
 .post-content p {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 p {
   padding: 0;
   margin: 0;
 }
-.minHeight {
-  min-height: 95vh;
-}
+
 /* navbar */
 .bg-light {
   background-color: var(--black) !important;
