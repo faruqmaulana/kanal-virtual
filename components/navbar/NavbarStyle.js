@@ -74,7 +74,7 @@ export function NavList({ categories }) {
           data-bs-dismiss="offcanvas"
         >
           <Link href={href}>
-            <a className="nav-link">{text}</a>
+            <a className="nav-link text-end">{text}</a>
           </Link>
         </li>
       ))}
@@ -97,6 +97,9 @@ export function ToggleIcons() {
 }
 
 export function NavFooter() {
+  var email =
+    "https://res.cloudinary.com/dbcloud776/image/upload/v1643466483/email_gmknvx.png";
+
   return (
     <>
       <FlexBoxCenter fd="column">
@@ -105,9 +108,9 @@ export function NavFooter() {
             <a href={href} target="_blank" key={icon} rel="noreferrer">
               <IconsLink
                 src={icon}
-                mr={icon == "assets/icons/email.png" ? "0" : "6px"}
-                w={icon == "assets/icons/email.png" ? "25px" : "30px"}
-                h={icon == "assets/icons/email.png" ? "25px" : "30px"}
+                mr={icon == email ? "0" : "6px"}
+                w={icon == email ? "25px" : "30px"}
+                h={icon == email ? "25px" : "30px"}
               ></IconsLink>
             </a>
           ))}

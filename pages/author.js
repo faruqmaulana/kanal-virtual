@@ -21,7 +21,7 @@ export default function Author({ authors }) {
       </Head>
       <TitleCategory title={"Penulis"}></TitleCategory>
       <div className="container">
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap align-items-center justify-content-center">
           {authors.map((author) => (
             <AuthorsCard
               key={author.slug}

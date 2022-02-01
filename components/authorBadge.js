@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   FlexBoxCenter,
@@ -10,6 +11,7 @@ export default function AuthorBadge({
   authorJob,
   authorBio,
   authorAvatar,
+  authorSlug,
 }) {
   const router = useRouter();
   return (
@@ -23,14 +25,32 @@ export default function AuthorBadge({
         }
         p="26px"
       >
-        <ImageSrc
-          className="rounded-circle"
-          width="80px"
-          src={authorAvatar}
-        ></ImageSrc>
-        <P fs="17px" fw="600" m="5px 0 0 0">
-          {authorName}
-        </P>
+        {router.pathname !== "/authors/[authors]" ? (
+          <Link href={"/authors/" + authorSlug} key={authorSlug}>
+            <a className="d-flex align-items-center flex-column">
+              <ImageSrc
+                className="rounded-circle"
+                m="0 0 0 3px"
+                width="80px"
+                src={authorAvatar}
+              ></ImageSrc>
+              <P fs="17px" fw="600" m="5px 0 0 0">
+                {authorName}
+              </P>
+            </a>
+          </Link>
+        ) : (
+          <>
+            <ImageSrc
+              className="rounded-circle"
+              width="80px"
+              src={authorAvatar}
+            ></ImageSrc>
+            <P fs="17px" fw="600" m="5px 0 0 0">
+              {authorName}
+            </P>
+          </>
+        )}
         <P fontStyle="italic" color="var(--black-100)">
           {authorJob}
         </P>

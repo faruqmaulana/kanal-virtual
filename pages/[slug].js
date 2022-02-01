@@ -27,12 +27,14 @@ export default function DetailPost({ post }) {
           publish={post.published_at}
           authorName={post.author.name}
           authorAvatar={post.author.avatar.url}
+          authorSlug={post.author.slug}
         ></PostDetail>
         <AuthorBadge
           authorName={post.author.name}
           authorJob={post.author.job}
           authorBio={post.author.biography}
           authorAvatar={post.author.avatar.url}
+          authorSlug={post.author.slug}
         ></AuthorBadge>
       </div>
     </>

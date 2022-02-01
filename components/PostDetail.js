@@ -4,6 +4,7 @@ import {
   P,
 } from "./styledComponents/StyledComponents";
 import { formatDate } from "../utils/utils";
+import Link from "next/link";
 export default function PostDetail({
   titlePost,
   contentImg,
@@ -11,6 +12,7 @@ export default function PostDetail({
   publish,
   authorName,
   authorAvatar,
+  authorSlug,
 }) {
   return (
     <>
@@ -18,15 +20,23 @@ export default function PostDetail({
         {titlePost}
       </P>
       <FlexBoxCenter mb="15px">
-        <ImageSrc
-          className="rounded-circle"
-          width="35px"
-          src={authorAvatar}
-        ></ImageSrc>
+        <Link href={"/authors/" + authorSlug} key={authorSlug}>
+          <a>
+            <ImageSrc
+              className="rounded-circle"
+              width="35px"
+              src={authorAvatar}
+            ></ImageSrc>
+          </a>
+        </Link>
         <P fs="13px" color="var(--black-100)" m="0 5px">
           oleh
         </P>
-        <P fs="13px">{authorName}</P>
+        <Link href={"/authors/" + authorSlug} key={authorSlug}>
+          <a>
+            <P fs="13px">{authorName}</P>
+          </a>
+        </Link>
         <P fs="13px" color="var(--black-100)">
           &nbsp;- {formatDate(publish)}
         </P>

@@ -40,21 +40,19 @@ export default function Navbar({ categories }) {
                   <ToggleIcons></ToggleIcons>
                 </button>
                 <div
-                  className="offcanvas offcanvas-end"
+                  className="offcanvas offcanvas-end d-flex align-items-center flex-column justify-content-center"
                   tabIndex="-1"
                   id="offcanvasNavbar"
                   aria-labelledby="offcanvasNavbarLabel"
                 >
-                  <div className="offcanvas-header d-flex flex-column">
-                    <div className="input-group">
-                      <form onSubmit={doSearch}>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="cari disini..."
-                          onChange={(e) => setKeyword(e.target.value)}
-                        />
-                      </form>
+                  <div className="offcanvas-header">
+                    <form onSubmit={doSearch} className="d-flex flex-row">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="cari disini..."
+                        onChange={(e) => setKeyword(e.target.value)}
+                      />
                       <button
                         className="btn btn-outline-secondary d-flex align-items-center"
                         type="button"
@@ -75,7 +73,7 @@ export default function Navbar({ categories }) {
                           />
                         </svg>
                       </button>
-                    </div>
+                    </form>
                   </div>
                   <FlexBoxCenter
                     className={"offcanvas-body"}

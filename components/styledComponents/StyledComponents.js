@@ -45,4 +45,5 @@ export const P = styled.p`
 
 export const ImageSrc = styled.img.attrs(({ className }) => className)`
   width: ${({ width }) => width};
+  margin: ${({ m }) => m};
 `;

@@ -10,10 +10,9 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
     <>
       <FlexBoxCenter
         fd="column"
-        m="0 20px"
-        w="90px"
+        m="5px 10px 33px 10px"
+        w="88px"
         h="170px"
-        mb="20px"
         key={slug}
       >
         <ImageSrc
@@ -34,9 +33,7 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
           br="5px"
         >
           <Link href={"/authors/" + slug} key={slug}>
-            <a className="intip" key={slug}>
-              Intip profil
-            </a>
+            <a className="intip">Intip profil</a>
           </Link>
         </FlexBoxCenter>
       </FlexBoxCenter>
