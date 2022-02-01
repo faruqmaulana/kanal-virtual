@@ -6,6 +6,8 @@ import {
   P,
 } from "./styledComponents/StyledComponents";
 
+import ReactMarkdown from "react-markdown";
+
 export default function AuthorBadge({
   authorName,
   authorJob,
@@ -55,7 +57,7 @@ export default function AuthorBadge({
           {authorJob}
         </P>
         <P m="10px 0 0 0" lh="20px" align="center" fs="14px">
-          {authorBio}
+          <ReactMarkdown>{authorBio}</ReactMarkdown>
         </P>
       </FlexBoxCenter>
     </>

@@ -24,6 +24,9 @@ body {
   padding-left: inherit;
   margin-top: var(--bs-gutter-y);
 }
+.post-content p {
+  margin-bottom: 1rem;
+}
 p {
   padding: 0;
   margin: 0;
@@ -151,6 +154,10 @@ p.title-content {
   height: 28px;
   font-size: 12px;
   margin-bottom: 9px;
+}
+
+img {
+  width: -webkit-fill-available;
 }
 
 img.eye {
