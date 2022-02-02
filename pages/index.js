@@ -9,7 +9,8 @@ import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
 import { useRouter } from "next/router";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
-  const start = +page === 1 ? 0 : (+page - 1) * 3;
+  var limitPost = 5;
+  const start = +page === 1 ? 0 : (+page - 1) * limitPost;
 
   //get total page
   const reqTotalPage = await fetch(
@@ -25,7 +26,6 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
   const mostViewed = await reqMostViewed.json();
 
   //request new post
-  var limitPost = 3;
   const reqNewPost = await fetch(
     process.env.NEXT_PUBLIC_API_URL +
       `posts?_sort=id:DESC&&_start=${start}&_limit=${limitPost}`
@@ -104,7 +104,10 @@ export default function Home({
             Selanjutnya
           </div>
         </FlexBoxCenter>
-        <FlexBoxCenter jc="center">
+        <FlexBoxCenter
+          jc="center"
+          style={{ display: `${totalButtton.length == 1 ? "none" : ""}` }}
+        >
           {totalButtton.map((total) => (
             <div
               key={total.index}

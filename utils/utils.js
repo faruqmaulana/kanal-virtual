@@ -10,3 +10,7 @@ export function formatDate(dateString) {
 
   return new Date(dateString).toLocaleDateString("id-ID", options);
 }
+
+export function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
