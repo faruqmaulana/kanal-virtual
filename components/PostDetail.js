@@ -33,15 +33,15 @@ export default function PostDetail({
             ></ImageSrc>
           </a>
         </Link>
-        <P fs="12px" color="var(--black-100)" m="0 5px">
+        <P fs="13px" color="var(--black-100)" m="0 5px">
           oleh
         </P>
         <Link href={"/authors/" + authorSlug} key={authorName}>
           <a>
-            <P fs="12px">{authorName}</P>
+            <P fs="13px">{authorName}</P>
           </a>
         </Link>
-        <P fs="12px" color="var(--black-100)">
+        <P fs="13px" color="var(--black-100)">
           &nbsp;- {formatDate(publish)}
         </P>
         <div className="dropdown ms-auto">
