@@ -178,6 +178,34 @@ p.count {
   color: var(--black-200);
 }
 
+.pagination-btn {
+  width: 86px;
+  height: 18px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--white);
+  background: var(--purple-300);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.circle-pagination {
+  font-size: 12px;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: var(--black);
+  background: var(--purple-200);
+  cursor: pointer;
+  margin-right: 3px;
+}
+.circle-pagination.active {
+  background-color: var(--purple-300);
+}
+.circle-pagination:last-child {
+  margin-right: 0;
+}
+
 footer {
   display: flex;
   align-items: center;

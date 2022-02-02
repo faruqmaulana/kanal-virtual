@@ -1,11 +1,11 @@
-import CardPosts from "../components/CardPosts";
-import HorizontalCards from "../components/HorizontalCards";
-import Jumbotron from "../components/Jumbotron";
-import TitleCategory from "../components/TitleCategory";
+import CardPosts from "../../components/CardPosts";
+import HorizontalCards from "../../components/HorizontalCards";
+import Jumbotron from "../../components/Jumbotron";
+import TitleCategory from "../../components/TitleCategory";
 import Head from "next/head";
 import { useState } from "react";
-import { HorizontalScrolling } from "../components/card/CardStyle";
-import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
+import { HorizontalScrolling } from "../../components/card/CardStyle";
+import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 import { useRouter } from "next/router";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
