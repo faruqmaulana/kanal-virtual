@@ -6,6 +6,7 @@ import {
 import { formatDate } from "../utils/utils";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import { useState } from "react";
 
 export default function PostDetail({
   titlePost,
@@ -16,26 +17,7 @@ export default function PostDetail({
   authorAvatar,
   authorSlug,
 }) {
-  const _mapProps = (props) => ({
-    ...props,
-    escapeHtml: false,
-    plugins: [
-      // RemarkMathPlugin,
-      // RemarkHighlightPlugin,
-      unwrapImages,
-      VideoPlugin,
-    ],
-    renderers: {
-      ...props.renderers,
-      // math: ({ value }) => <BlockMath>{value}</BlockMath>,
-      // inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>,
-      code: CodeBlock,
-      image: ImageBlock,
-      video: VideoBlock,
-      paragraph: ParagraphBlock,
-    },
-  });
-  const Content = (props) => <ReactMarkdown {..._mapProps(props)} />;
+  const [font, setFont] = useState(16);
   return (
     <>
       <P fs="20px" fw="bold" color="var(--black)" m="10px 0 10px 0">
@@ -62,11 +44,62 @@ export default function PostDetail({
         <P fs="13px" color="var(--black-100)">
           &nbsp;- {formatDate(publish)}
         </P>
+        <div className="dropdown ms-auto">
+          <P className="dropbtn">
+            A<span style={{ fontSize: 18 }}>A</span>
+          </P>
+          <div className="dropdown-content">
+            <div className="d-flex align-items-center justify-content-center flex-column">
+              <div className="d-flex" style={{ borderBottom: "groove" }}>
+                <P
+                  style={{
+                    borderRight: "groove",
+                    cursor: `${font !== 12 ? "pointer" : "auto"}`,
+                    color: `${font !== 12 ? "#5eb2ef" : "var(--black-100"}`,
+                  }}
+                  onClick={
+                    font > 12
+                      ? () => {
+                          setFont(font - 1);
+                        }
+                      : () => {}
+                  }
+                >
+                  A
+                </P>
+                <P
+                  style={{
+                    cursor: `${font !== 20 ? "pointer" : "auto"}`,
+                    color: `${font !== 20 ? "#5eb2ef" : "var(--black-100"}`,
+                  }}
+                  onClick={
+                    font < 20
+                      ? () => {
+                          setFont(font + 1);
+                        }
+                      : () => {}
+                  }
+                >
+                  A
+                </P>
+              </div>
+              <P
+                onClick={() => {
+                  setFont(16);
+                }}
+              >
+                Reset
+              </P>
+            </div>
+          </div>
+        </div>
       </FlexBoxCenter>
       <FlexBoxCenter fd="column" jc="center" m="10px 0 13px 0">
         <ImageSrc src={contentImg} width={"-webkit-fill-available"}></ImageSrc>
       </FlexBoxCenter>
-      <ReactMarkdown className="post-content">{contentPost}</ReactMarkdown>
+      <div className="post-content" style={{ fontSize: `${font}px` }}>
+        <ReactMarkdown>{contentPost}</ReactMarkdown>
+      </div>
     </>
   );
 }

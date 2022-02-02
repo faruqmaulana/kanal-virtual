@@ -10,7 +10,8 @@ import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
 export async function getServerSideProps() {
   //request post dg jumlah pembaca terbanyak
   const reqMostViewed = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + "posts?_sort=viewCount:DESC"
+    process.env.NEXT_PUBLIC_API_URL +
+      "posts?_sort=viewCount:DESC&&_start=0&_limit=5"
   );
   const mostViewed = await reqMostViewed.json();
 

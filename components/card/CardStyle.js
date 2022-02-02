@@ -83,7 +83,11 @@ export default function CardFooter({ authorName, viewPost, publish }) {
         {router.pathname !== "/" ? (
           <>
             <div className="ms-auto d-flex align-items-center justify-content-center">
-              <img className="eye" src="../assets/icons/eye.png" alt="" />
+              <img
+                className="eye"
+                src="https://res.cloudinary.com/dbcloud776/image/upload/v1643466483/eye_cfeldy.png"
+                alt=""
+              />
               <P fs="8px" m="0 0 0 auto" color="var(--black-200)">
                 {viewPost}
               </P>
