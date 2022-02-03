@@ -12,7 +12,6 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
   const start = +page === 1 ? 0 : (+page - 1) * limitPost;
 
-  console.log(start);
   //get total page
   const reqTotalPage = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "posts/count"
@@ -79,7 +78,7 @@ export default function Home({
         </HorizontalScrolling>
       </div>
       <TitleCategory title={"Terbaru"} />
-      <div className="container mb-3 d-flex flex-column align-items-center">
+      <div className="container pb-3 d-flex flex-column align-items-center">
         <FlexBoxCenter jc="center" fd="column">
           {postTerbaru.map((newPost) => (
             <CardPosts key={newPost.slug} {...newPost}></CardPosts>

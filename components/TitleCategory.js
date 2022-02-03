@@ -9,7 +9,7 @@ const CatTitle = styled.p.attrs(({ className }) => className)`
   background-color: var(--purple-300);
   margin-bottom: 18px;
   font-size: 12px;
-  color: var(--white);
+  color: #ffffff;
 `;
 
 export default function TitleCategory({ title }) {

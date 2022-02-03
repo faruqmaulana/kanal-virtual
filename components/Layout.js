@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 export default function Layout({ children, categories }) {
   return (
     <>
+      <Navbar categories={categories}></Navbar>
       <div className="wrapper">
-        <Navbar categories={categories}></Navbar>
         <CategoryPost categories={categories}></CategoryPost>
         {children}
       </div>

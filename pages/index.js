@@ -78,7 +78,7 @@ export default function Home({
         </HorizontalScrolling>
       </div>
       <TitleCategory title={"Terbaru"} />
-      <div className="container mb-3 d-flex flex-column align-items-center">
+      <div className="container pb-3 d-flex flex-column align-items-center">
         <FlexBoxCenter jc="center" fd="column">
           {postTerbaru.map((newPost) => (
             <CardPosts key={newPost.slug} {...newPost}></CardPosts>

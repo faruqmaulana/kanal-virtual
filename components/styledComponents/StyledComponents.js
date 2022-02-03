@@ -28,6 +28,7 @@ export const FlexCardFooter = styled.div`
   width: ${({ w }) => w};
   padding: ${({ p }) => p};
   background-color: ${({ bg }) => bg};
+  box-shadow: var(--shadow-black);
 `;
 
 // Text

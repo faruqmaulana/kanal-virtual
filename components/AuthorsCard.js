@@ -23,7 +23,7 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
         <P fontStyle="italic" m="auto 0 0 0" color="var(--black-100)" fs="12px">
           {job}
         </P>
-        <P fs="13px" fw="600" m="2px 0 0 0" align="center">
+        <P fs="13px" fw="600" m="2px 0 0 0" align="center" color="var(--black)">
           {name}
         </P>
         <FlexBoxCenter

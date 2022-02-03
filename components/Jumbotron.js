@@ -17,6 +17,7 @@ export default function Jumbotron() {
           fs="10px"
           lh="23px"
           align="center"
+          color="var(--black)"
         >
           Yang virtual medianya, srawungnya sama. Blablablaaaaaaa...
         </P>

@@ -23,7 +23,9 @@ export default function AuthorBadge({
         m={router.pathname !== "/authors/[authors]" ? "70px 0 30px 0" : "0"}
         fd="column"
         border={
-          router.pathname !== "/authors/[authors]" ? "1px solid #eee" : ""
+          router.pathname !== "/authors/[authors]"
+            ? "1px solid var(--border-white)"
+            : ""
         }
         p="26px"
       >
@@ -48,7 +50,7 @@ export default function AuthorBadge({
               width="80px"
               src={authorAvatar}
             ></ImageSrc>
-            <P fs="17px" fw="600" m="5px 0 0 0">
+            <P fs="17px" fw="600" m="5px 0 0 0" color="var(--black)">
               {authorName}
             </P>
           </>
@@ -56,10 +58,17 @@ export default function AuthorBadge({
         <P fontStyle="italic" color="var(--black-100)">
           {authorJob}
         </P>
-        <P m="10px 0 0 0" lh="20px" align="center" fs="14px">
+        <P
+          m="10px 0 0 0"
+          lh="20px"
+          align="center"
+          fs="14px"
+          color="var(--black)"
+        >
           <ReactMarkdown>{authorBio}</ReactMarkdown>
         </P>
       </FlexBoxCenter>
+      <div className="pb-2"></div>
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function CategoryPost({ categories }) {
   }));
   return (
     <>
-      <FlexBoxCenter jc="center" mt="71px">
+      <FlexBoxCenter jc="center" p="71px 0 0 0">
         {items.map((item) => (
           <Link href={item.href} key={item.name}>
             <CategoryBox className={"col"}>{item.name}</CategoryBox>

@@ -13,7 +13,10 @@ export default function CardPosts(props) {
     <>
       <Link href={`/${props.slug}`} height={60}>
         <a>
-          <CardPostsStyle bgImg={props.thumbnail.formats.thumbnail.url}>
+          <CardPostsStyle
+            bgImg={props.thumbnail.formats.thumbnail.url}
+            className="cards"
+          >
             <FlexBoxCenter
               w="48px"
               h="14px"
@@ -28,7 +31,7 @@ export default function CardPosts(props) {
             </FlexBoxCenter>
             <FlexCardFooter
               w="250px"
-              p="5px 7px 7px 7px"
+              p="5px 7px 2px 7px"
               jc="center"
               fd="column"
               bg="var(--white-100)"

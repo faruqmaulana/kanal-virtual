@@ -7,6 +7,8 @@
   --black: #000000;
   --black-100: #a0a0a0;
   --black-200: rgba(0, 0, 0, 0.58);
+  --shadow-black: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  --border-white: #eee;
 }
 html,
 body {
@@ -17,14 +19,16 @@ body {
   font-style: normal;
 }
 
-.wrappe {
+.wrappr {
+  min-height: 95.9vh;
   background-color: #1a1b1b;
   --white: #1a1b1b;
-  --black: #fefeff;
+  --white-100: #1a1b1bcc;
+  --black: #cacaca;
+  --black-100: #a0a0a091;
   --black-200: #fefeff;
-}
-.wrapper {
-  min-height: 95.9vh;
+  --shadow-black: 0px 8px 16px 0px rgba(255, 255, 255, 0.116);
+  --border-white: var(--black-100);
 }
 .row > * {
   flex-shrink: 0;
@@ -36,6 +40,7 @@ body {
 }
 .post-content p {
   margin-bottom: 1em;
+  color: var(--black);
 }
 p {
   padding: 0;
@@ -239,7 +244,7 @@ p.footer {
   right: 0;
   border-radius: 5px;
   background-color: var(--white);
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-black);
   z-index: 1;
 }
 
