@@ -65,7 +65,6 @@ export default function Post({
   }
   return (
     <>
-      {console.log(category)}
       <Head>
         <title>{capitalize(categorySlug)}</title>
       </Head>
