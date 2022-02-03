@@ -11,7 +11,7 @@ export default function CardPosts(props) {
   const router = useRouter();
   return (
     <>
-      <Link href={`/${props.slug}`} height={60}>
+      <Link href={`/post/${props.slug}`} height={60}>
         <a>
           <CardPostsStyle
             bgImg={props.thumbnail.formats.thumbnail.url}

@@ -1,25 +1,42 @@
 import Head from "next/head";
 import AuthorBadge from "../../components/authorBadge";
 import CardPosts from "../../components/CardPosts";
-import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
+import Pagination from "../../components/Pagination";
 import TitleCategory from "../../components/TitleCategory";
+import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 
-export async function getServerSideProps({ params: { authors: authorSlug } }) {
-  console.log(authorSlug);
+export async function getServerSideProps({
+  params: { authors: authorSlug },
+  query: { page: page = 1 },
+}) {
+  var limitPost = 3;
+  const start = +page === 1 ? 0 : (+page - 1) * limitPost;
+  //get total page
+  const reqTotalPage = await fetch(
+    process.env.NEXT_PUBLIC_API_URL +
+      `posts/count?_where[author.slug]=${authorSlug}`
+  );
+  const totalPage = await reqTotalPage.json();
+
   const reqAuthors = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + "posts?_where[author.slug]=" + authorSlug
+    process.env.NEXT_PUBLIC_API_URL +
+      "posts?_where[author.slug]=" +
+      authorSlug +
+      `&&_start=${start}&_limit=${limitPost}`
   );
   const authorDetail = await reqAuthors.json();
 
-  console.log(authorDetail);
   return {
     props: {
       author: authorDetail,
+      page: +page,
+      totalPage,
+      limitPost,
     },
   };
 }
 
-export default function AuthorDetails({ author }) {
+export default function AuthorDetails({ author, page, totalPage, limitPost }) {
   return (
     <>
       <Head>
@@ -39,6 +56,11 @@ export default function AuthorDetails({ author }) {
             <CardPosts key={authorPost.slug} {...authorPost}></CardPosts>
           ))}
         </FlexBoxCenter>
+        <Pagination
+          page={page}
+          totalPage={totalPage}
+          limitPost={limitPost}
+        ></Pagination>
       </div>
     </>
   );

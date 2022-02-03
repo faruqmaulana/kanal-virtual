@@ -3,10 +3,10 @@ import HorizontalCards from "../components/HorizontalCards";
 import Jumbotron from "../components/Jumbotron";
 import TitleCategory from "../components/TitleCategory";
 import Head from "next/head";
+import Pagination from "../components/Pagination";
 import { useState } from "react";
 import { HorizontalScrolling } from "../components/card/CardStyle";
 import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
-import { useRouter } from "next/router";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
@@ -51,15 +51,7 @@ export default function Home({
   limitPost,
 }) {
   const [mostViewed, setMostViewed] = useState(viewedPost);
-  const router = useRouter();
-  const lastPage = Math.ceil(totalPage / limitPost);
 
-  //   var circlePagination = <div className="circle-pagination"></div>;
-  var totalButtton = [];
-  for (let index = 1; index <= lastPage; index++) {
-    var array = { index };
-    totalButtton.push(array);
-  }
   return (
     <>
       <Head>
@@ -84,43 +76,11 @@ export default function Home({
             <CardPosts key={newPost.slug} {...newPost}></CardPosts>
           ))}
         </FlexBoxCenter>
-        <FlexBoxCenter jc="center" className="mb-2" w="250px">
-          <div
-            className="pagination-btn"
-            onClick={() => {
-              router.push(`/posts?page=${page - 1}`);
-            }}
-            style={{ display: `${page <= 1 ? "none" : ""}` }}
-          >
-            Sebelumnya
-          </div>
-          <div
-            className={`pagination-btn ${page <= 1 ? "m-auto" : "ms-auto"}`}
-            onClick={() => {
-              router.push(`/posts?page=${page + 1}`);
-            }}
-            style={{ display: `${page >= lastPage ? "none" : ""}` }}
-          >
-            Selanjutnya
-          </div>
-        </FlexBoxCenter>
-        <FlexBoxCenter
-          jc="center"
-          style={{ display: `${totalButtton.length == 1 ? "none" : ""}` }}
-        >
-          {totalButtton.map((total) => (
-            <div
-              key={total.index}
-              value={total.index}
-              className="circle-pagination"
-              onClick={() => {
-                router.push("/posts?page=" + total.index);
-              }}
-            >
-              {total.index}
-            </div>
-          ))}
-        </FlexBoxCenter>
+        <Pagination
+          page={page}
+          totalPage={totalPage}
+          limitPost={limitPost}
+        ></Pagination>
       </div>
     </>
   );

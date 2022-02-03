@@ -1,11 +1,11 @@
 import TitleCategory from "../../components/TitleCategory";
 import Head from "next/head";
-import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 import CardPosts from "../../components/CardPosts";
 import News from "../../components/News";
-import { useRouter } from "next/router";
+import Pagination from "../../components/Pagination";
+import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 import { capitalize } from "../../utils/utils";
-import { CategoryBox } from "../../components/category/CategoryStyle";
+import { HubungiAdmin } from "../../components/category/CategoryStyle";
 
 export async function getServerSideProps({
   params: { category: categorySlug },
@@ -56,13 +56,6 @@ export default function Post({
   totalPage,
   limitPost,
 }) {
-  const router = useRouter();
-  const lastPage = Math.ceil(totalPage / limitPost);
-  var totalButtton = [];
-  for (let index = 1; index <= lastPage; index++) {
-    var array = { index };
-    totalButtton.push(array);
-  }
   return (
     <>
       <Head>
@@ -84,14 +77,13 @@ export default function Post({
             <p className="text-center">
               Masukkan {categorySlug} anda dan jadilah yang pertama!
             </p>
-            <CategoryBox
+            <HubungiAdmin
               className={"col mt-5 m-auto d-flex align-items-center"}
               style={{ width: "150px" }}
             >
               <a
                 href="https://api.whatsapp.com/send?phone=+6283833454679"
                 target="_blank"
-                rel="noreferrer"
                 style={{ lineHeight: 1 }}
               >
                 Hubungi admin
@@ -101,7 +93,7 @@ export default function Post({
                 src="https://res.cloudinary.com/dbcloud776/image/upload/v1643466484/whatsapp_syxq2k.png"
                 style={{ width: "15px", heigh: "15px" }}
               />
-            </CategoryBox>
+            </HubungiAdmin>
           </div>
         </>
       ) : (
@@ -114,49 +106,11 @@ export default function Post({
                   ))
                 : posts.map((post) => <News key={post.slug} {...post}></News>)}
             </FlexBoxCenter>
-            <FlexBoxCenter
-              jc="center"
-              className="mb-2 container mb-3 d-flex align-items-center m-auto"
-              w="270px"
-            >
-              <div
-                className="pagination-btn"
-                onClick={() => {
-                  router.push(`/category/${categorySlug}?page=${page - 1}`);
-                }}
-                style={{ display: `${page <= 1 ? "none" : ""}` }}
-              >
-                Sebelumnya
-              </div>
-              <div
-                className={`pagination-btn ${page <= 1 ? "m-auto" : "ms-auto"}`}
-                onClick={() => {
-                  router.push(`/category/${categorySlug}?page=${page + 1}`);
-                }}
-                style={{ display: `${page >= lastPage ? "none" : ""}` }}
-              >
-                Selanjutnya
-              </div>
-            </FlexBoxCenter>
-            <FlexBoxCenter
-              jc="center"
-              style={{ display: `${totalButtton.length == 1 ? "none" : ""}` }}
-            >
-              {totalButtton.map((total) => (
-                <div
-                  key={total.index}
-                  value={total.index}
-                  className="circle-pagination"
-                  onClick={() => {
-                    router.push(
-                      `/category/${categorySlug}?page=${total.index}`
-                    );
-                  }}
-                >
-                  {total.index}
-                </div>
-              ))}
-            </FlexBoxCenter>
+            <Pagination
+              page={page}
+              totalPage={totalPage}
+              limitPost={limitPost}
+            ></Pagination>
           </div>
         </>
       )}

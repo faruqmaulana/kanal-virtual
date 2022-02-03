@@ -9,7 +9,7 @@ import { P } from "./styledComponents/StyledComponents";
 export default function HorizontalCards(props) {
   return (
     <>
-      <Link href={"/" + props.slug}>
+      <Link href={"/post/" + props.slug}>
         <a>
           <HorizontalCardsStyle>
             <ImgHorizontal

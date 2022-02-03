@@ -1,5 +1,5 @@
-import AuthorBadge from "../components/authorBadge";
-import PostDetail from "../components/PostDetail";
+import AuthorBadge from "../../components/authorBadge";
+import PostDetail from "../../components/PostDetail";
 import Head from "next/head";
 
 export async function getServerSideProps({ params: { slug } }) {
