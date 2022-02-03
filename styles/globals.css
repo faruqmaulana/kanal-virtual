@@ -206,7 +206,7 @@ p.count {
   color: var(--black);
   background: var(--purple-200);
   cursor: pointer;
-  margin-right: 3px;
+  margin-right: 6px;
 }
 .circle-pagination.active {
   background-color: var(--purple-300);
