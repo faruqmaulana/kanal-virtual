@@ -1,11 +1,40 @@
 import Link from "next/link";
 import Router from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavList, ToggleIcons, NavFooter } from "./navbar/NavbarStyle";
 import { FlexBoxCenter } from "./styledComponents/StyledComponents";
 
 export default function Navbar({ categories }) {
   const [keyword, setKeyword] = useState(false);
+
+  const [darkTheme, setDarkTheme] = useState(undefined);
+
+  const handleToggle = (event) => {
+    setDarkTheme(event.target.checked);
+  };
+
+  useEffect(() => {
+    if (darkTheme !== undefined) {
+      if (darkTheme) {
+        // Set value of  darkmode to dark
+        document.documentElement.setAttribute("data-theme", "dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        // Set value of  darkmode to light
+        document.documentElement.removeAttribute("data-theme");
+        window.localStorage.setItem("theme", "light");
+      }
+    }
+  }, [darkTheme]);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const initialColorValue = root.style.getPropertyValue(
+      "--initial-color-mode"
+    );
+    // Set initial darkmode to light
+    setDarkTheme(initialColorValue === "dark");
+  }, []);
 
   function doSearch(e) {
     e.preventDefault();
@@ -24,12 +53,23 @@ export default function Navbar({ categories }) {
           <div className="col-lg-5">
             <nav className="navbar navbar-light bg-light fixed-top">
               <div className="container-fluid">
+                <div>
+                  <form action="#">
+                    <label className="switch">
+                      <input
+                        type="checkbox"
+                        checked={darkTheme}
+                        onChange={handleToggle}
+                      />
+                      <span className="slider round"></span>
+                    </label>
+                  </form>
+                </div>
                 <Link href="/">
-                  <a className="navbar-brand">
-                    <div className="circle"></div>
+                  <a>
+                    <p className="nav-title">KANAL VIRTUAL</p>
                   </a>
                 </Link>
-                <p className="nav-title">KANAL VIRTUAL</p>
                 <button
                   className="navbar-toggler"
                   type="button"

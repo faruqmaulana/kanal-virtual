@@ -60,7 +60,9 @@ export default function Pagination(page, totalPage, limitPost) {
           <div
             key={total.index}
             value={total.index}
-            className="circle-pagination"
+            className={`circle-pagination ${
+              total.index == page ? "active" : ""
+            }`}
             onClick={() => {
               router.push(`${pageRouter}?page=${total.index}`);
             }}

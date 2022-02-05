@@ -25,7 +25,7 @@ export default function CardPosts(props) {
               br="5px"
               bg="var(--purple-200)"
             >
-              <P fs="7px" lh="0">
+              <P fs="7px" lh="0" color="var(--black-navbar)">
                 {props.category.name}
               </P>
             </FlexBoxCenter>

@@ -1,7 +1,10 @@
 :root {
+  --black-navbar: #000000;
+  --white-navbar: #ffffff;
   --purple-100: #f2deff;
   --purple-200: #bc6ff1;
   --purple-300: #52057b;
+  --purple-400: #892cdc;
   --white: #ffffff;
   --white-100: rgba(255, 255, 255, 0.75);
   --black: #000000;
@@ -10,6 +13,16 @@
   --shadow-black: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   --border-white: #eee;
 }
+
+[data-theme="dark"] {
+  --white: #1a1b1b;
+  --white-100: #1a1b1bcc;
+  --black: #cacaca;
+  --black-100: #a0a0a091;
+  --black-200: #fefeff;
+  --shadow-black: 0px 8px 16px 0px rgba(255, 255, 255, 0.116);
+  --border-white: var(--black-100);
+}
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -17,6 +30,67 @@ body {
   background-color: var(--white);
   font-weight: normal;
   font-style: normal;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 23px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #52057b;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .wrapper {
@@ -53,7 +127,7 @@ p {
 
 /* navbar */
 .bg-light {
-  background-color: var(--black) !important;
+  background-color: var(--black-navbar) !important;
 }
 
 .circle {
@@ -87,7 +161,7 @@ input.form-control:not(:disabled):not(.disabled):focus {
 button#button-addon2 {
   color: var(--black);
   border-color: transparent;
-  background-color: var(--white);
+  background-color: var(--white-navbar);
   border-radius: 0 18px 18px 0;
 }
 button#button-addon2:active {
@@ -99,7 +173,7 @@ button#button-addon2:not(:disabled):not(.disabled):focus {
 
 .navbar-light .navbar-nav .nav-link {
   font-size: 14px;
-  color: var(--black);
+  color: var(--black-navbar);
 }
 
 a {
@@ -204,12 +278,16 @@ p.count {
   height: 18px;
   border-radius: 50%;
   color: var(--black);
-  background: var(--purple-200);
+  background: var(--purple-100);
   cursor: pointer;
   margin-right: 6px;
 }
+.circle-pagination:hover {
+  background-color: var(--purple-400);
+  transition: all 0.5s ease;
+}
 .circle-pagination.active {
-  background-color: var(--purple-300);
+  background: var(--purple-400);
 }
 .circle-pagination:last-child {
   margin-right: 0;
@@ -220,12 +298,12 @@ footer {
   align-items: center;
   justify-content: center;
   height: 39px;
-  background-color: var(--black);
+  background-color: var(--black-navbar);
 }
 
 p.footer {
   font-size: 10px;
-  color: var(--white);
+  color: var(--white-navbar);
 }
 
 /* font size */
