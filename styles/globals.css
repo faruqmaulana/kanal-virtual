@@ -32,6 +32,22 @@ body {
   font-style: normal;
 }
 
+.bi.bi-moon-stars {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  color: white;
+  margin: 0 1px;
+}
+.bi.bi-sun {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  transition: 0.4s;
+}
 /* Toggle Switch */
 .switch {
   position: relative;
@@ -56,6 +72,7 @@ body {
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  z-index: -1;
 }
 
 .slider:before {
@@ -93,21 +110,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.wrapper {
-  min-height: 95.9vh;
-}
-
-.wrappr {
-  min-height: 95.9vh;
-  background-color: #1a1b1b;
-  --white: #1a1b1b;
-  --white-100: #1a1b1bcc;
-  --black: #cacaca;
-  --black-100: #a0a0a091;
-  --black-200: #fefeff;
-  --shadow-black: 0px 8px 16px 0px rgba(255, 255, 255, 0.116);
-  --border-white: var(--black-100);
-}
 .row > * {
   flex-shrink: 0;
   width: inherit;
