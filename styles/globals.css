@@ -32,6 +32,10 @@ body {
   font-style: normal;
 }
 
+.wrapper {
+  min-height: 95.9vh;
+}
+
 .bi.bi-moon-stars {
   position: absolute;
   height: 15px;

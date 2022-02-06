@@ -70,7 +70,7 @@ export default function Post({
       ></TitleCategory>
       {posts === 0 ? (
         <>
-          <div className="container">
+          <div className="container" style={{ color: "var(--black)" }}>
             <p className="text-center">
               Mohon maaf konten "{categorySlug}" masih "belum ada"😥
             </p>
@@ -84,7 +84,7 @@ export default function Post({
               <a
                 href="https://api.whatsapp.com/send?phone=+6283833454679"
                 target="_blank"
-                style={{ lineHeight: 1 }}
+                style={{ lineHeight: 1, color: "var(--black-navbar)" }}
               >
                 Hubungi admin
               </a>

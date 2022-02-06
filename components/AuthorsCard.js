@@ -33,7 +33,9 @@ export default function AuthorsCard({ name, job, avatar, slug }) {
           br="5px"
         >
           <Link href={"/authors/" + slug} key={slug}>
-            <a className="intip">Intip profil</a>
+            <a className="intip" style={{ color: "var(--black-navbar)" }}>
+              Intip profil
+            </a>
           </Link>
         </FlexBoxCenter>
       </FlexBoxCenter>
