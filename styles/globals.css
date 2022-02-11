@@ -348,7 +348,7 @@ p.footer {
 }
 
 .dropdown-content p:hover {
-  background-color: #ddd;
+  background-color: var(--black-100);
   cursor: pointer;
   text-align: center;
   width: -webkit-fill-available;
