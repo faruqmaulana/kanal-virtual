@@ -276,7 +276,7 @@ p.count {
   height: 18px;
   font-size: 12px;
   text-align: center;
-  color: var(--white);
+  color: white;
   background: var(--purple-300);
   border-radius: 5px;
   cursor: pointer;
@@ -287,7 +287,7 @@ p.count {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  color: var(--black);
+  color: var(--black-navbar);
   background: var(--purple-100);
   cursor: pointer;
   margin-right: 6px;
@@ -298,6 +298,7 @@ p.count {
 }
 .circle-pagination.active {
   background: var(--purple-400);
+  color: white;
 }
 .circle-pagination:last-child {
   margin-right: 0;
