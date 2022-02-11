@@ -12,6 +12,7 @@
   --black-200: rgba(0, 0, 0, 0.58);
   --shadow-black: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   --border-white: #eee;
+  --eye-dark: brightness(0);
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
   --black-200: #fefeff;
   --shadow-black: 0px 8px 16px 0px rgba(255, 255, 255, 0.116);
   --border-white: var(--black-100);
+  --eye-dark: invert(1);
 }
 html,
 body {
@@ -41,16 +43,17 @@ body {
   height: 15px;
   width: 15px;
   left: 4px;
-  bottom: 4px;
+  bottom: 26px;
   color: white;
-  margin: 0 1px;
+  margin: -22px 1px;
+  transition: 0.5s;
 }
 .bi.bi-sun {
   position: absolute;
   height: 15px;
   width: 15px;
   margin: 4px;
-  transition: 0.4s;
+  transition: 0.5s;
 }
 /* Toggle Switch */
 .switch {
@@ -261,6 +264,7 @@ img.eye {
   width: 15px;
   height: 15px;
   margin-right: 6px;
+  filter: var(--eye-dark);
 }
 p.count {
   font-size: 7px;
