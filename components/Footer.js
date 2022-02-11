@@ -10,7 +10,7 @@ export default function Footer() {
         jc="center"
       >
         <P fs="10px" color="var(--white-navbar)" align="center">
-          Kanal 2021
+          Kanal 2022
         </P>
       </FlexBoxCenter>
     </>
