@@ -294,6 +294,7 @@ p.count {
 }
 .circle-pagination:hover {
   background-color: var(--purple-400);
+  color: white;
   transition: all 0.5s ease;
 }
 .circle-pagination.active {

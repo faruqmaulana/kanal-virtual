@@ -28,49 +28,52 @@ export default function Pagination(page, totalPage, limitPost) {
 
   return (
     <>
-      <FlexBoxCenter
-        jc="center"
-        className="mb-2 container mb-3 d-flex align-items-center m-auto"
-        w="270px"
-      >
-        <div
-          className="pagination-btn"
-          onClick={() => {
-            router.push(`${pageRouter}?page=${page - 1}`);
-          }}
-          style={{ display: `${page <= 1 ? "none" : ""}` }}
-        >
-          Sebelumnya
-        </div>
-        <div
-          className={`pagination-btn ${page <= 1 ? "m-auto" : "ms-auto"}`}
-          onClick={() => {
-            router.push(`${pageRouter}?page=${page + 1}`);
-          }}
-          style={{ display: `${page >= lastPage ? "none" : ""}` }}
-        >
-          Selanjutnya
-        </div>
-      </FlexBoxCenter>
-      <FlexBoxCenter
-        jc="center"
-        style={{ display: `${totalButtton.length == 1 ? "none" : ""}` }}
-      >
-        {totalButtton.map((total) => (
-          <div
-            key={total.index}
-            value={total.index}
-            className={`circle-pagination ${
-              total.index == page ? "active" : ""
-            }`}
-            onClick={() => {
-              router.push(`${pageRouter}?page=${total.index}`);
-            }}
+      {totalButtton.length > 1 && (
+        <>
+          <FlexBoxCenter
+            jc="center"
+            className="mb-2 container mb-3 d-flex align-items-center m-auto"
+            w="270px"
           >
-            {total.index}
-          </div>
-        ))}
-      </FlexBoxCenter>
+            {page > 1 && (
+              <div
+                className="pagination-btn"
+                onClick={() => {
+                  router.push(`${pageRouter}?page=${page - 1}`);
+                }}
+              >
+                Sebelumnya
+              </div>
+            )}
+            {page < lastPage && (
+              <div
+                className={`pagination-btn ${page <= 1 ? "m-auto" : "ms-auto"}`}
+                onClick={() => {
+                  router.push(`${pageRouter}?page=${page + 1}`);
+                }}
+              >
+                Selanjutnya
+              </div>
+            )}
+          </FlexBoxCenter>
+          <FlexBoxCenter jc="center">
+            {totalButtton.map((total) => (
+              <div
+                key={total.index}
+                value={total.index}
+                className={`circle-pagination ${
+                  total.index == page && "active"
+                }`}
+                onClick={() => {
+                  router.push(`${pageRouter}?page=${total.index}`);
+                }}
+              >
+                {total.index}
+              </div>
+            ))}
+          </FlexBoxCenter>
+        </>
+      )}
     </>
   );
 }
