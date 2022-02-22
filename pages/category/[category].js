@@ -47,7 +47,7 @@ export async function getServerSideProps({
     },
   };
 }
-
+// commit
 export default function Post({
   posts,
   category,

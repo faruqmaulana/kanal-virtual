@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ROSE THEME APPLICATION
 
-## Getting Started
+## Tampilan Aplikasi
 
-First, run the development server:
+1. Tampilan depan aplikasi
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+   <!-- prettier-ignore -->
+   <div align="center">
+   ![Cara download 1](github/assets/dark-mode.png)
+    <a href="https://your-activity.vercel.app" target="_blank" style="background-color: #FC98A5; color: white; padding: 5px; border-radius: 5px;">Intip Aplikasi</a>
+   <div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Teknologi yang di gunakan
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [NextJs](https://nextjs.org/)
+- [Tailwindcss](https://tailwindcss.com//)
+- [HeadlessUI](https://headlessui.dev/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Referensi
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Artikel
 
-## Learn More
+- [Website MDN (Java Script)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-To learn more about Next.js, take a look at the following resources:
+### Video
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [The final project (todo list app)](https://www.youtube.com/watch?v=JS5w4rUbjQE&t=12766s)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-## Deploy on Vercel
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
+![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)
+![vercelbadge](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)
+
+Dibuat menggunakan NextJS. Kode berlisensi dibawah [MIT License](https://github.com/faruqmaulana/rose-theme-application/main/LICENSE)
