@@ -6,8 +6,8 @@
 
    <!-- prettier-ignore -->
    <div align="center">
-   ![Cara download 1](github/assets/dark-mode.png)
-    <a href="https://your-activity.vercel.app" target="_blank" style="background-color: #FC98A5; color: white; padding: 5px; border-radius: 5px;">Intip Aplikasi</a>
+    <img src="github/assets/dark-mode.png">
+    </img>
    <div>
 
 ## Teknologi yang di gunakan
