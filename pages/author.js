@@ -6,7 +6,7 @@ export async function getServerSideProps() {
   //request author
   const reqAuthors = await fetch(process.env.NEXT_PUBLIC_API_URL + "authors");
   const authors = await reqAuthors.json();
-
+  //a
   return {
     props: {
       authors,
