@@ -6,8 +6,12 @@
 
    <!-- prettier-ignore -->
    <div align="center">
-    <img src="github/assets/dark-mode.png">
+   <div>
+     <img src="github/assets/normal-mode.png">
+      </img>
+      <img src="github/assets/dark-mode.png">
     </img>
+   </div>
    <div>
 
 ## Teknologi yang di gunakan
