@@ -4,14 +4,14 @@
 
 1. Tampilan depan aplikasi
 
-   <!-- prettier-ignore -->
+<!-- prettier-ignore -->
    <div align="center">
-   <div>
-     <img src="github/assets/normal-mode.png">
-      </img>
-      <img src="github/assets/dark-mode.png">
-    </img>
-   </div>
+       <div>
+           <img src="github/assets/normal-mode.png" alt="normal-mode" width="400" height="1000">
+           </img>
+           <img src="github/assets/dark-mode.png" width="400" height="1000">
+           </img>
+       </div>
    <div>
 
 ## Teknologi yang di gunakan
