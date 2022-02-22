@@ -6,21 +6,20 @@
 
    <!-- prettier-ignore -->
     <div align="center">
-       <img src="github/assets/normal-mode.png" alt="normal-mode" width="400" height="1000">
+       <img src="github/assets/normal-mode.png" alt="normal-mode" width="350" height="1000">
        </img>
-       <img src="github/assets/dark-mode.png" width="400" height="1000">
+       <img src="github/assets/dark-mode.png" width="350" height="1000">
        </img>
    <div>
 
 2. Tampilan halaman post dan navbar
 
    <div align="center">
-       <img src="github/assets/posts.png" width="400" height="1000">
+       <img src="github/assets/posts.png" width="370" height="800">
        </img>
-       <img src="github/assets/navbar.png" width="400" height="1000">
+       <img src="github/assets/navbar.png" width="370" height="800">
        </img>
     </div>
-
 
 #
 

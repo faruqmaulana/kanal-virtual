@@ -26,6 +26,7 @@ export default function Author({ authors }) {
             author.slug
         );
         const res = await req.json();
+        console.log("hasil fetch totalposts: ", res);
         var resData = { slug: author.slug, totalPost: res };
         setAuthorPost((arr) => [...arr, resData]);
       }
@@ -35,13 +36,14 @@ export default function Author({ authors }) {
 
   return (
     <>
+      {/* {console.log("data baru array: ", authorPosts)}
       {authorPosts.map((res) => {
         return (
           <>
             <li key={res.slug}>{res.totalPost + "tulisan"}</li>
           </>
         );
-      })}
+      })} */}
       <Head>
         <title>Penulis</title>
       </Head>
