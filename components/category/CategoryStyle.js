@@ -6,7 +6,7 @@ export const CategoryBox = styled.a.attrs(({ ClassName }) => ClassName)`
   height: 19px;
   margin-right: 5px;
   border-radius: 5px;
-  background-color: var(--purple-200);
+  background-color: #cc89fa;
   margin-bottom: 9px;
   color: var(--black-navbar);
   &:first-child {
@@ -19,7 +19,7 @@ export const CategoryBox = styled.a.attrs(({ ClassName }) => ClassName)`
     cursor: pointer;
     transition: 0.5s;
     color: var(--black-navbar);
-    background-color: #cc89fa;
+    background-color: var(--purple-200);
   }
 `;
 

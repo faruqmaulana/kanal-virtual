@@ -23,7 +23,7 @@ export default function CardPosts(props) {
               jc="center"
               m="7px 7px 48px auto"
               br="5px"
-              bg="var(--purple-200)"
+              bg="#cc89fa"
             >
               <P fs="7px" lh="0" color="var(--black-navbar)">
                 {props.category.name}
