@@ -6,17 +6,19 @@ export async function getServerSideProps() {
   const reqAuthors = await fetch(process.env.NEXT_PUBLIC_API_URL + "authors");
   const authors = await reqAuthors.json();
 
-  const getTotalPost = authors.map(async (author) => {
-    const req = await fetch(
-      process.env.NEXT_PUBLIC_API_URL +
-        "posts/count?_where[author.slug]=" +
-        author.slug
-    );
-    const res = await req.json();
-    return { ...author, totalPost: res };
-  });
+  const finalData = await Promise.all(
+    authors.map(async (author) => {
+      const req = await (
+        await fetch(
+          process.env.NEXT_PUBLIC_API_URL +
+            "posts/count?_where[author.slug]=" +
+            author.slug
+        )
+      ).json();
 
-  const finalData = await Promise.all(getTotalPost);
+      return { ...author, totalPost: req };
+    })
+  );
 
   return {
     props: {
