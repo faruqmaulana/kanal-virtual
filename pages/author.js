@@ -13,9 +13,7 @@ export async function getServerSideProps() {
         author.slug
     );
     const res = await req.json();
-
-    var resData = { ...author, totalPost: res };
-    return resData;
+    return { ...author, totalPost: res };
   });
 
   const finalData = await Promise.all(getTotalPost);
@@ -30,6 +28,7 @@ export async function getServerSideProps() {
 export default function Author({ data }) {
   return (
     <>
+      {console.log(data)}
       <Head>
         <title>Penulis</title>
       </Head>
