@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination";
 import { useState } from "react";
 import { HorizontalScrolling } from "../components/card/CardStyle";
 import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
+import { getBase64ImageUrl } from "../utils/utils";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
@@ -26,15 +27,26 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
   const mostViewed = await reqMostViewed.json();
 
   //request new post
-  const reqNewPost = await fetch(
-    process.env.NEXT_PUBLIC_API_URL +
-      `posts?_sort=id:DESC&&_start=${start}&_limit=${limitPost}`
-  );
-  const newPosts = await reqNewPost.json();
+  const reqNewPost = await (
+    await fetch(
+      process.env.NEXT_PUBLIC_API_URL +
+        `posts?_sort=id:DESC&&_start=${start}&_limit=${limitPost}`
+    )
+  ).json();
+
+  // const newPosts = await Promise.all(
+  //   reqNewPost.map(async (data) => {
+  //     const imageEncode = await getBase64ImageUrl(
+  //       data.thumbnail.formats.thumbnail.url
+  //     );
+
+  //     return { ...data, imageEncode };
+  //   })
+  // );
 
   return {
     props: {
-      newPosts,
+      newPosts: reqNewPost,
       mostViewed,
       page: +page,
       totalPage,
@@ -44,7 +56,7 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
 }
 
 export default function Home({
-  newPosts: postTerbaru,
+  newPosts,
   mostViewed: viewedPost,
   page,
   totalPage,
@@ -72,7 +84,7 @@ export default function Home({
       <TitleCategory title={"Terbaru"} />
       <div className="container pb-3 d-flex flex-column align-items-center">
         <FlexBoxCenter jc="center" fd="column">
-          {postTerbaru.map((newPost) => (
+          {newPosts.map((newPost) => (
             <CardPosts key={newPost.slug} {...newPost}></CardPosts>
           ))}
         </FlexBoxCenter>

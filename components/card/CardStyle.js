@@ -25,11 +25,19 @@ export const HorizontalCardsStyle = styled.div`
   flex-basis: 42.333%;
   flex-grow: 0;
   flex-shrink: 0;
+  background: url("${({ lazyImage }) => lazyImage}");
 `;
 
-export const ImgHorizontal = styled.img.attrs(({ src }) => src)`
-  margin-bottom: 5px;
-  width: 100%;
+export const ImgHorizontal = styled.div`
+  /*float: left;*/
+  max-width: 187px;
+  padding: 0 0.75rem 0 0.75rem;
+  margin-bottom: 1.1rem;
+  border: 0;
+  flex-basis: 42.333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: url("${({ lazyImage }) => lazyImage}");
 `;
 
 //Vertical Cards
