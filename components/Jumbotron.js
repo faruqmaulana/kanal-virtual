@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Image from "next/image";
+import jumbotronImage from "../public/beranda.png";
 import { FlexBoxCenter, P } from "./styledComponents/StyledComponents";
 
 const ImageIndexs = styled.img`
@@ -8,7 +10,13 @@ const ImageIndexs = styled.img`
 export default function Jumbotron() {
   return (
     <>
-      <ImageIndexs src="assets/icons/beranda.png"></ImageIndexs>
+      <Image
+        src={jumbotronImage}
+        width={600}
+        height={350}
+        placeholder="blur"
+        layout="responsive"
+      ></Image>
       <FlexBoxCenter>
         <P
           w="196px"
