@@ -3,10 +3,6 @@ import Image from "next/image";
 import jumbotronImage from "../public/beranda.png";
 import { FlexBoxCenter, P } from "./styledComponents/StyledComponents";
 
-const ImageIndexs = styled.img`
-  width: -webkit-fill-available;
-`;
-
 export default function Jumbotron() {
   return (
     <>

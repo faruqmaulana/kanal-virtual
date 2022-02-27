@@ -1,5 +1,6 @@
 import Link from "next/link";
-import CardFooter, {
+import Image from "next/image";
+import {
   HorizontalCardsStyle,
   ImgHorizontal,
   PostTitle,
@@ -12,9 +13,13 @@ export default function HorizontalCards(props) {
       <Link href={"/post/" + props.slug}>
         <a>
           <HorizontalCardsStyle>
-            <ImgHorizontal
+            {/* <Image
               src={props.thumbnail.formats.thumbnail.url}
-            ></ImgHorizontal>
+              width={600}
+              height={350}
+              placeholder="blur"
+              layout="responsive"
+            ></Image> */}
             <PostTitle m="0 0 18px 0" fs="11px">
               {props.title}
             </PostTitle>
