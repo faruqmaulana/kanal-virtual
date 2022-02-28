@@ -15,9 +15,9 @@ export function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// export async function getBase64ImageUrl(imageId) {
-//   const response = await fetch(imageId);
-//   const buffer = await response.arrayBuffer();
-//   const data = Buffer.from(buffer).toString("base64");
-//   return `data:image/webp;base64,${data}`;
-// }
+export async function getBase64ImageUrl(imageId) {
+  const response = await fetch(imageId);
+  const buffer = await response.arrayBuffer();
+  const data = Buffer.from(buffer).toString("base64");
+  return `data:image/webp;base64,${data}`;
+}

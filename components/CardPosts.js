@@ -17,9 +17,13 @@ export default function CardPosts(props) {
     transformations: {
       effect: "blur:10000",
       quality: 1,
+      resize: {
+        type: "scale",
+        width: 500,
+        height: 500,
+      },
     },
   });
-
   const [image, setImage] = useState();
 
   useEffect(() => {

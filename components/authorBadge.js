@@ -8,13 +8,7 @@ import {
 
 import ReactMarkdown from "react-markdown";
 
-export default function AuthorBadge({
-  authorName,
-  authorJob,
-  authorBio,
-  authorAvatar,
-  authorSlug,
-}) {
+export default function AuthorBadge(props) {
   const router = useRouter();
   return (
     <>
@@ -30,16 +24,19 @@ export default function AuthorBadge({
         p="26px"
       >
         {router.pathname !== "/authors/[authors]" ? (
-          <Link href={"/authors/" + authorSlug} key={authorSlug}>
+          <Link
+            href={"/authors/" + props.post.author.slug}
+            key={props.post.author.slug}
+          >
             <a className="d-flex align-items-center flex-column">
               <ImageSrc
                 className="rounded-circle"
                 m="0 0 0 3px"
                 width="80px"
-                src={authorAvatar}
+                src={props.post.author.avatar.url}
               ></ImageSrc>
               <P fs="17px" fw="600" m="5px 0 0 0">
-                {authorName}
+                {props.post.author.name}
               </P>
             </a>
           </Link>
@@ -48,15 +45,15 @@ export default function AuthorBadge({
             <ImageSrc
               className="rounded-circle"
               width="80px"
-              src={authorAvatar}
+              src={props.post.author.url}
             ></ImageSrc>
             <P fs="17px" fw="600" m="5px 0 0 0" color="var(--black)">
-              {authorName}
+              {props.post.author.name}
             </P>
           </>
         )}
         <P fontStyle="italic" color="var(--black-100)">
-          {authorJob}
+          {props.post.author.job}
         </P>
         <P
           m="10px 0 0 0"
@@ -65,7 +62,7 @@ export default function AuthorBadge({
           fs="14px"
           color="var(--black)"
         >
-          <ReactMarkdown>{authorBio}</ReactMarkdown>
+          <ReactMarkdown>{props.post.author.biography}</ReactMarkdown>
         </P>
       </FlexBoxCenter>
       <div className="pb-2"></div>
