@@ -1,22 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  HorizontalCardsStyle,
-  ImageBoxLoader,
-  ImgHorizontal,
-  PostTitle,
-} from "./card/CardStyle";
+import { HorizontalCardsStyle, PostTitle } from "./card/CardStyle";
 import { P } from "./styledComponents/StyledComponents";
-import { getBase64ImageUrl } from "../utils/utils";
 import { buildUrl } from "cloudinary-build-url";
 import { useEffect, useState } from "react";
 
 export default function HorizontalCards(props) {
-  // useEffect(async () => {
-  //   const data = await getBase64ImageUrl(props.thumbnail.url);
-  //   setImage= data
-  // }, []);
-
   const lazyImage = buildUrl(props.thumbnail.formats.thumbnail.url, {
     cloud: {
       cloudName: "dbcloud776",
@@ -47,12 +36,12 @@ export default function HorizontalCards(props) {
                 background: `url(${lazyImage})`,
                 backgroundRepeat: "no-repeat",
                 height: 92,
-                width: 166,
-                marginBottom: 20,
+                width: "100%",
+                marginBottom: 15,
                 backgroundSize: "cover",
               }}
             >
-              {image && <Image src={image} width={600} height={350}></Image>}
+              {image && <Image src={image} width={620} height={350}></Image>}
             </div>
             <PostTitle m="0 0 18px 0" fs="11px">
               {props.title}

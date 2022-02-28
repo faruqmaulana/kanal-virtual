@@ -20,7 +20,6 @@ export default function CardPosts(props) {
     },
   });
 
-  console.log(lazyImage);
   const [image, setImage] = useState();
 
   useEffect(() => {

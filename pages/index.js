@@ -34,16 +34,6 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
     )
   ).json();
 
-  // const newPosts = await Promise.all(
-  //   reqNewPost.map(async (data) => {
-  //     const imageEncode = await getBase64ImageUrl(
-  //       data.thumbnail.formats.thumbnail.url
-  //     );
-
-  //     return { ...data, imageEncode };
-  //   })
-  // );
-
   return {
     props: {
       newPosts: reqNewPost,
