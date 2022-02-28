@@ -5,6 +5,6 @@ module.exports = {
   },
   images: {
     domains: ["res.cloudinary.com"],
-    deviceSizes: [3840],
+    deviceSizes: [1080, 1200, 1920, 2048, 3840],
   },
 };

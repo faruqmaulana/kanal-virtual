@@ -47,6 +47,7 @@ export default function CardPosts(props) {
               width: 240,
               marginBottom: 20,
               backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
             {image && (

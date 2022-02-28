@@ -49,6 +49,7 @@ export const CardPostsStyle = styled.div`
   background-size: cover;
   margin-bottom: 23px;
   padding-top: 1px;
+  background-position: center;
 `;
 
 export const PostTitle = styled.span`
