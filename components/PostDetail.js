@@ -28,12 +28,7 @@ export default function PostDetail(props) {
       },
     },
   });
-  console.log(lazyImage);
-  useEffect(async () => {
-    setTimeout(() => {
-      setImage(props.post.thumbnail.url);
-    }, 1);
-  }, []);
+
   return (
     <>
       {console.log(image)}
@@ -123,17 +118,15 @@ export default function PostDetail(props) {
           backgroundSize: "cover",
         }}
       >
-        {image && (
-          <Image
-            src={props.post.thumbnail.url}
-            width={620}
-            height={330}
-            layout="responsive"
-            placeholder="blur"
-            blurDataURL={image}
-            quality={100}
-          ></Image>
-        )}
+        <Image
+          src={props.post.thumbnail.url}
+          width={620}
+          height={330}
+          layout="responsive"
+          placeholder="blur"
+          blurDataURL={props.post.thumbnail.url}
+          quality={100}
+        ></Image>
       </div>
       <div
         className="post-content"
