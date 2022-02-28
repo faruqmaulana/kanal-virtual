@@ -97,6 +97,7 @@ export default function PostDetail({ props }) {
         placeholder="blur"
         blurDataURL={data.baseUrlData}
         quality={100}
+        objectFit="cover"
       ></Image>
       <div
         className="post-content"
