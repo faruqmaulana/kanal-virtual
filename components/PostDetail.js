@@ -3,58 +3,41 @@ import {
   ImageSrc,
   P,
 } from "./styledComponents/StyledComponents";
-import { formatDate, getBase64ImageUrl } from "../utils/utils";
+import { formatDate } from "../utils/utils";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import buildUrl from "cloudinary-build-url";
-import { useState, useEffect, lazy } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
-export default function PostDetail(props) {
+export default function PostDetail({ props }) {
+  const data = { ...props };
   const [font, setFont] = useState(16);
-  const [image, setImage] = useState();
-
-  const lazyImage = buildUrl(props.post.thumbnail.url, {
-    cloud: {
-      cloudName: "dbcloud776",
-    },
-    transformations: {
-      effect: "blur:10000",
-      quality: 1,
-      resize: {
-        type: "scale",
-        width: 1,
-        height: 1,
-      },
-    },
-  });
 
   return (
     <>
-      {console.log(image)}
       <P fs="20px" fw="bold" color="var(--black)" m="10px 0 10px 0">
-        {props.post.title}
+        {data.title}
       </P>
       <FlexBoxCenter mb="15px">
-        <Link href={"/authors/" + props.post.author.slug}>
+        <Link href={"/authors/" + data.author.slug}>
           <a>
             <ImageSrc
               className="rounded-circle"
               width="35px"
-              src={props.post.author.avatar.url}
+              src={data.author.avatar.url}
             ></ImageSrc>
           </a>
         </Link>
         <P fs="13px" color="var(--black-100)" m="0 5px">
           oleh
         </P>
-        <Link href={"/authors/" + props.post.author.slug}>
+        <Link href={"/authors/" + data.author.slug}>
           <a>
-            <P fs="13px">{props.post.author.name}</P>
+            <P fs="13px">{data.author.name}</P>
           </a>
         </Link>
         <P fs="13px" color="var(--black-100)">
-          &nbsp;- {formatDate(props.post.updated_at)}
+          &nbsp;- {formatDate(data.updated_at)}
         </P>
         <div className="dropdown ms-auto">
           <P className="dropbtn">
@@ -106,33 +89,20 @@ export default function PostDetail(props) {
           </div>
         </div>
       </FlexBoxCenter>
-      <div
-        style={{
-          position: "relative",
-          paddingTop: `${(750 / 1000) & 100}%`,
-          background: `url(${lazyImage})`,
-          backgroundRepeat: "no-repeat",
-          height: "100%",
-          width: "100%",
-          marginBottom: 20,
-          backgroundSize: "cover",
-        }}
-      >
-        <Image
-          src={props.post.thumbnail.url}
-          width={620}
-          height={330}
-          layout="responsive"
-          placeholder="blur"
-          blurDataURL={props.post.thumbnail.url}
-          quality={100}
-        ></Image>
-      </div>
+      <Image
+        src={data.thumbnail.url}
+        width={620}
+        height={330}
+        layout="responsive"
+        placeholder="blur"
+        blurDataURL={data.baseUrlData}
+        quality={100}
+      ></Image>
       <div
         className="post-content"
         style={{ fontSize: `${font}px`, marginTop: 10 }}
       >
-        <ReactMarkdown>{props.post.content}</ReactMarkdown>
+        <ReactMarkdown>{data.content}</ReactMarkdown>
       </div>
     </>
   );

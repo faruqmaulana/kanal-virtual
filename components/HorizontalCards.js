@@ -41,7 +41,14 @@ export default function HorizontalCards(props) {
                 backgroundSize: "cover",
               }}
             >
-              {image && <Image src={image} width={620} height={350}></Image>}
+              {image && (
+                <Image
+                  src={image}
+                  width={620}
+                  height={350}
+                  objectFit="cover"
+                ></Image>
+              )}
             </div>
             <PostTitle m="0 0 18px 0" fs="11px">
               {props.title}
