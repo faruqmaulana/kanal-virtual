@@ -8,33 +8,35 @@ import {
 
 import ReactMarkdown from "react-markdown";
 
-export default function AuthorBadge(props) {
-  const data = { ...props };
+export default function AuthorBadge({
+  authorName,
+  authorSlug,
+  authorAvatar,
+  authorJob,
+  authorBio,
+}) {
   const router = useRouter();
+  const validate = router.pathname !== "/authors/[authors]";
   return (
     <>
       <FlexBoxCenter
         jc="center"
-        m={router.pathname !== "/authors/[authors]" ? "70px 0 30px 0" : "0"}
+        m={validate ? "70px 0 30px 0" : "0"}
         fd="column"
-        border={
-          router.pathname !== "/authors/[authors]"
-            ? "1px solid var(--border-white)"
-            : ""
-        }
+        border={validate ? "1px solid var(--border-white)" : ""}
         p="26px"
       >
-        {router.pathname !== "/authors/[authors]" ? (
-          <Link href={"/authors/" + data.author.slug} key={data.author.slug}>
+        {validate ? (
+          <Link href={"/authors/" + authorSlug} key={authorSlug}>
             <a className="d-flex align-items-center flex-column">
               <ImageSrc
                 className="rounded-circle"
                 m="0 0 0 3px"
                 width="80px"
-                src={data.author.avatar.url}
+                src={authorAvatar}
               ></ImageSrc>
               <P fs="17px" fw="600" m="5px 0 0 0">
-                {data.author.name}
+                {authorName}
               </P>
             </a>
           </Link>
@@ -43,15 +45,15 @@ export default function AuthorBadge(props) {
             <ImageSrc
               className="rounded-circle"
               width="80px"
-              src={data.author.url}
+              src={authorAvatar}
             ></ImageSrc>
             <P fs="17px" fw="600" m="5px 0 0 0" color="var(--black)">
-              {data.author.name}
+              {authorName}
             </P>
           </>
         )}
         <P fontStyle="italic" color="var(--black-100)">
-          {data.author.job}
+          {authorJob}
         </P>
         <P
           m="10px 0 0 0"
@@ -60,7 +62,7 @@ export default function AuthorBadge(props) {
           fs="14px"
           color="var(--black)"
         >
-          <ReactMarkdown>{data.author.biography}</ReactMarkdown>
+          <ReactMarkdown>{authorBio}</ReactMarkdown>
         </P>
       </FlexBoxCenter>
       <div className="pb-2"></div>

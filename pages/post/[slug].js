@@ -41,7 +41,13 @@ export default function DetailPost({ data }) {
       </Head>
       <div className="container">
         <PostDetail props={data}></PostDetail>
-        <AuthorBadge {...data}></AuthorBadge>
+        <AuthorBadge
+          authorName={data.author.name}
+          authorSlug={data.author.slug}
+          authorJob={data.author.job}
+          authorBio={data.author.biography}
+          authorAvatar={data.author.avatar.url}
+        ></AuthorBadge>
       </div>
     </>
   );
