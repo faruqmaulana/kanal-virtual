@@ -20,7 +20,7 @@ export default function HorizontalCards(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      setImage(props.thumbnail.formats.thumbnail.url);
+      setImage(props.thumbnail.url);
     }, 1);
   }, []);
 
@@ -47,6 +47,7 @@ export default function HorizontalCards(props) {
                   width={620}
                   height={350}
                   objectFit="cover"
+                  layout="intrinsic"
                 ></Image>
               )}
             </div>

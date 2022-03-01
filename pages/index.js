@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 import { useState } from "react";
 import { HorizontalScrolling } from "../components/card/CardStyle";
 import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
-import { getBase64ImageUrl } from "../utils/utils";
+import { buildUrl } from "cloudinary-build-url";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
@@ -34,9 +34,22 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
     )
   ).json();
 
+  const newPosts = reqNewPost.map((data) => {
+    const imgUrl = buildUrl(data.thumbnail.url, {
+      cloud: {
+        cloudName: "dbcloud776",
+      },
+      transformations: {
+        quality: 10,
+      },
+    });
+
+    return { ...data, imgUrl };
+  });
+
   return {
     props: {
-      newPosts: reqNewPost,
+      newPosts,
       mostViewed,
       page: +page,
       totalPage,

@@ -28,7 +28,7 @@ export default function CardPosts(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      setImage(props.thumbnail.formats.thumbnail.url);
+      setImage(props.imgUrl);
     }, 1);
   }, []);
 
