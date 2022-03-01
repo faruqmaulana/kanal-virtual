@@ -21,3 +21,12 @@ export async function getBase64ImageUrl(imageId) {
   const data = Buffer.from(buffer).toString("base64");
   return `data:image/webp;base64,${data}`;
 }
+
+export const db_cloud = {
+  cloud: {
+    cloudName: "dbcloud776",
+  },
+  transformations: {
+    quality: 10,
+  },
+};

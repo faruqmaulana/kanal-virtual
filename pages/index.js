@@ -8,6 +8,7 @@ import { useState } from "react";
 import { HorizontalScrolling } from "../components/card/CardStyle";
 import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
 import { buildUrl } from "cloudinary-build-url";
+import { db_cloud } from "../utils/utils";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
@@ -35,14 +36,7 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
   ).json();
 
   const newPosts = reqNewPost.map((data) => {
-    const imgUrl = buildUrl(data.thumbnail.url, {
-      cloud: {
-        cloudName: "dbcloud776",
-      },
-      transformations: {
-        quality: 10,
-      },
-    });
+    const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
 
     return { ...data, imgUrl };
   });

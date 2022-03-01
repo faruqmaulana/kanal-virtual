@@ -4,6 +4,8 @@ import CardPosts from "../../components/CardPosts";
 import Pagination from "../../components/Pagination";
 import TitleCategory from "../../components/TitleCategory";
 import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
+import buildUrl from "cloudinary-build-url";
+import { db_cloud } from "../../utils/utils";
 
 export async function getServerSideProps({
   params: { authors: authorSlug },
@@ -26,9 +28,15 @@ export async function getServerSideProps({
   );
   const authorDetail = await reqAuthors.json();
 
+  const newPosts = authorDetail.map((data) => {
+    const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
+
+    return { ...data, imgUrl };
+  });
+
   return {
     props: {
-      author: authorDetail,
+      author: newPosts,
       page: +page,
       totalPage,
       limitPost,

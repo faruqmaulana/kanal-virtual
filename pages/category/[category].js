@@ -4,8 +4,9 @@ import CardPosts from "../../components/CardPosts";
 import News from "../../components/News";
 import Pagination from "../../components/Pagination";
 import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
-import { capitalize } from "../../utils/utils";
+import { capitalize, db_cloud } from "../../utils/utils";
 import { HubungiAdmin } from "../../components/category/CategoryStyle";
+import { buildUrl } from "cloudinary-build-url";
 
 export async function getServerSideProps({
   params: { category: categorySlug },
@@ -35,7 +36,14 @@ export async function getServerSideProps({
       categorySlug +
       `&&_start=${start}&_limit=${limitPost}`
   );
-  const posts = await reqPost.json();
+  const resPost = await reqPost.json();
+
+  const posts = resPost.map((data) => {
+    const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
+
+    return { ...data, imgUrl };
+  });
+
   return {
     props: {
       posts: !posts.length ? posts.length : posts,
