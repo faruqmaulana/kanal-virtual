@@ -8,7 +8,7 @@ import { useState } from "react";
 import { HorizontalScrolling } from "../components/card/CardStyle";
 import { FlexBoxCenter } from "../components/styledComponents/StyledComponents";
 import { buildUrl } from "cloudinary-build-url";
-import { db_cloud } from "../utils/utils";
+import { db_cloud, img_blur } from "../utils/utils";
 
 export async function getServerSideProps({ query: { page: page = 1 } }) {
   var limitPost = 5;
@@ -25,7 +25,12 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
     process.env.NEXT_PUBLIC_API_URL +
       "posts?_sort=viewCount:DESC&&_start=0&_limit=5"
   );
-  const mostViewed = await reqMostViewed.json();
+  const resMostViewed = await reqMostViewed.json();
+
+  const mostViewedData = resMostViewed.map((res) => {
+    const lazyImg = buildUrl(res.thumbnail.url, img_blur);
+    return { ...res, lazyImg };
+  });
 
   //request new post
   const reqNewPost = await (
@@ -37,14 +42,14 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
 
   const newPosts = reqNewPost.map((data) => {
     const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
-
-    return { ...data, imgUrl };
+    const lazyImg = buildUrl(data.thumbnail.url, img_blur);
+    return { ...data, imgUrl, lazyImg };
   });
 
   return {
     props: {
       newPosts,
-      mostViewed,
+      mostViewedData,
       page: +page,
       totalPage,
       limitPost,
@@ -54,7 +59,7 @@ export async function getServerSideProps({ query: { page: page = 1 } }) {
 
 export default function Home({
   newPosts,
-  mostViewed: viewedPost,
+  mostViewedData: viewedPost,
   page,
   totalPage,
   limitPost,

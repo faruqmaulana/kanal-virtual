@@ -30,3 +30,17 @@ export const db_cloud = {
     quality: 10,
   },
 };
+
+export const img_blur = {
+  cloud: {
+    cloudName: "dbcloud776",
+  },
+  transformations: {
+    effect: "blur:9999",
+    quality: 20,
+    resize: {
+      width: 300,
+      height: 150,
+    },
+  },
+};

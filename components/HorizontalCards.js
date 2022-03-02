@@ -6,22 +6,12 @@ import { buildUrl } from "cloudinary-build-url";
 import { useEffect, useState } from "react";
 
 export default function HorizontalCards(props) {
-  const lazyImage = buildUrl(props.thumbnail.formats.thumbnail.url, {
-    cloud: {
-      cloudName: "dbcloud776",
-    },
-    transformations: {
-      effect: "blur:10000",
-      quality: 1,
-    },
-  });
-
   const [image, setImage] = useState();
 
   useEffect(() => {
     setTimeout(() => {
       setImage(props.thumbnail.url);
-    }, 1);
+    }, 500);
   }, []);
 
   return (
@@ -33,7 +23,7 @@ export default function HorizontalCards(props) {
               style={{
                 position: "relative",
                 paddingTop: `${(750 / 1000) & 100}%`,
-                background: `url(${lazyImage})`,
+                background: `url(${props.lazyImg})`,
                 backgroundRepeat: "no-repeat",
                 height: 92,
                 width: "100%",

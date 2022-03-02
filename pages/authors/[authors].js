@@ -5,7 +5,7 @@ import Pagination from "../../components/Pagination";
 import TitleCategory from "../../components/TitleCategory";
 import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
 import buildUrl from "cloudinary-build-url";
-import { db_cloud } from "../../utils/utils";
+import { db_cloud, img_blur } from "../../utils/utils";
 
 export async function getServerSideProps({
   params: { authors: authorSlug },
@@ -30,8 +30,8 @@ export async function getServerSideProps({
 
   const newPosts = authorDetail.map((data) => {
     const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
-
-    return { ...data, imgUrl };
+    const lazyImg = buildUrl(data.thumbnail.url, img_blur);
+    return { ...data, imgUrl, lazyImg };
   });
 
   return {

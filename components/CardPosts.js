@@ -10,26 +10,12 @@ import { buildUrl } from "cloudinary-build-url";
 import { useEffect, useState } from "react";
 
 export default function CardPosts(props) {
-  const lazyImage = buildUrl(props.thumbnail.formats.thumbnail.url, {
-    cloud: {
-      cloudName: "dbcloud776",
-    },
-    transformations: {
-      effect: "blur:10000",
-      quality: 1,
-      resize: {
-        type: "scale",
-        width: 500,
-        height: 500,
-      },
-    },
-  });
   const [image, setImage] = useState();
 
   useEffect(() => {
     setTimeout(() => {
       setImage(props.imgUrl);
-    }, 1);
+    }, 500);
   }, []);
 
   const router = useRouter();
@@ -41,10 +27,10 @@ export default function CardPosts(props) {
             style={{
               position: "relative",
               paddingTop: `${(750 / 1000) & 100}%`,
-              background: `url(${lazyImage})`,
+              background: `url(${props.lazyImg})`,
               backgroundRepeat: "no-repeat",
               height: 125,
-              width: 240,
+              width: 250,
               marginBottom: 20,
               backgroundSize: "cover",
             }}
