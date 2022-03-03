@@ -36,11 +36,7 @@ body {
 
 /* N-Progres loading bar color */
 #nprogress .bar {
-  background: var(--purple-200) !important;
-}
-
-.nprogress-busy {
-  background: var(--purple-200) !important;
+  border: 2px solid var(--purple-200);
 }
 
 #nprogress .peg {
