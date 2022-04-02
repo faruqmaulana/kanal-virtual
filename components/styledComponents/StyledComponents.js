@@ -18,7 +18,9 @@ export const FlexBoxCenter = styled.div.attrs(({ className }) => className)`
   background-color: ${({ bg }) => bg};
   border: ${({ border }) => border};
   position: ${({ position }) => position};
+  right: ${({ right }) => right};
   bottom: ${({ bottom }) => bottom};
+  z-index: ${({ zIndex }) => zIndex};
 `;
 
 export const FlexCardFooter = styled.div`
@@ -27,7 +29,11 @@ export const FlexCardFooter = styled.div`
   flex-direction: ${({ fd }) => fd};
   width: ${({ w }) => w};
   padding: ${({ p }) => p};
+  right: ${({ right }) => right};
+  bottom: ${({ bottom }) => bottom};
+  z-index: ${({ zIndex }) => zIndex};
   background-color: ${({ bg }) => bg};
+  position: ${({ position }) => position};
   box-shadow: var(--shadow-black);
 `;
 

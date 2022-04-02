@@ -4,7 +4,12 @@ import CardPosts from "../../components/CardPosts";
 import News from "../../components/News";
 import Pagination from "../../components/Pagination";
 import { FlexBoxCenter } from "../../components/styledComponents/StyledComponents";
-import { capitalize, db_cloud, img_blur } from "../../utils/utils";
+import {
+  capitalize,
+  db_cloud,
+  getBase64ImageUrl,
+  getSmallBase64,
+} from "../../utils/utils";
 import { HubungiAdmin } from "../../components/category/CategoryStyle";
 import { buildUrl } from "cloudinary-build-url";
 
@@ -38,11 +43,15 @@ export async function getServerSideProps({
   );
   const resPost = await reqPost.json();
 
-  const posts = resPost.map((data) => {
-    const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
-    const lazyImg = buildUrl(data.thumbnail.url, img_blur);
-    return { ...data, imgUrl, lazyImg };
-  });
+  const posts = await Promise.all(
+    resPost.map(async (data) => {
+      const imgUrl = buildUrl(data.thumbnail.url, db_cloud);
+      const lazyImg = buildUrl(data.thumbnail.url, getSmallBase64);
+      const baseUrlData = await getBase64ImageUrl(lazyImg);
+
+      return { ...data, imgUrl, baseUrlData };
+    })
+  );
 
   return {
     props: {

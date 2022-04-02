@@ -27,7 +27,7 @@ export const db_cloud = {
     cloudName: "dbcloud776",
   },
   transformations: {
-    quality: 10,
+    quality: 50,
   },
 };
 
@@ -41,6 +41,19 @@ export const img_blur = {
     resize: {
       width: 300,
       height: 150,
+    },
+  },
+};
+
+export const getSmallBase64 = {
+  cloud: {
+    cloudName: "dbcloud776",
+  },
+  transformations: {
+    quality: 5,
+    resize: {
+      width: 250,
+      height: 110,
     },
   },
 };

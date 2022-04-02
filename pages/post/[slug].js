@@ -1,7 +1,7 @@
 import AuthorBadge from "../../components/authorBadge";
 import PostDetail from "../../components/PostDetail";
 import Head from "next/head";
-import { getBase64ImageUrl } from "../../utils/utils";
+import { getBase64ImageUrl, getSmallBase64 } from "../../utils/utils";
 import buildUrl from "cloudinary-build-url";
 export async function getServerSideProps({ params: { slug } }) {
   const reqPost = await fetch(
@@ -9,20 +9,7 @@ export async function getServerSideProps({ params: { slug } }) {
   );
 
   const posts = await reqPost.json();
-  const lazyImage = buildUrl(posts.post.thumbnail.url, {
-    cloud: {
-      cloudName: "dbcloud776",
-    },
-    transformations: {
-      effect: "blur:10000",
-      quality: 3,
-      resize: {
-        type: "scale",
-        width: 250,
-        height: 110,
-      },
-    },
-  });
+  const lazyImage = buildUrl(posts.post.thumbnail.url, getSmallBase64);
 
   const baseUrlData = await getBase64ImageUrl(lazyImage);
 

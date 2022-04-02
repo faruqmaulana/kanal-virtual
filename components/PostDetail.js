@@ -12,7 +12,6 @@ import Image from "next/image";
 export default function PostDetail({ props }) {
   const data = { ...props };
   const [font, setFont] = useState(16);
-
   return (
     <>
       <P fs="20px" fw="bold" color="var(--black)" m="10px 0 10px 0">

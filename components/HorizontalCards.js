@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HorizontalCardsStyle, PostTitle } from "./card/CardStyle";
-import { P } from "./styledComponents/StyledComponents";
-import { buildUrl } from "cloudinary-build-url";
 import { useEffect, useState } from "react";
+import { P } from "./styledComponents/StyledComponents";
+import { HorizontalCardsStyle, PostTitle } from "./card/CardStyle";
 
 export default function HorizontalCards(props) {
   const [image, setImage] = useState();
