@@ -6,7 +6,6 @@ import {
   FlexBoxCenter,
   P,
 } from "./styledComponents/StyledComponents";
-import { buildUrl } from "cloudinary-build-url";
 import { useEffect, useState } from "react";
 
 export default function CardPosts(props) {

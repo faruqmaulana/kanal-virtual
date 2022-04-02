@@ -91,6 +91,7 @@ export default function PostDetail({ props }) {
       </FlexBoxCenter>
       <Image
         src={data.thumbnail.url}
+        alt={data.title}
         width={620}
         height={330}
         layout="responsive"
